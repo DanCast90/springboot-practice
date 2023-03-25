@@ -2,11 +2,20 @@ package com.springpractice.daniel.models;
 
 public class Usuario {
 
+    private Long id;
     private String nombre;
     private String apellido;
     private String email;
     private String telefono;
     private String password;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNombre() {
         return nombre;
