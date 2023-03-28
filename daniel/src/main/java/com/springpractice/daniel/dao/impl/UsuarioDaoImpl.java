@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import com.springpractice.daniel.dao.UsuarioDao;
 import com.springpractice.daniel.models.Usuario;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 
 
@@ -14,10 +16,16 @@ import jakarta.transaction.Transactional;
 @Repository
 @Transactional
 public class UsuarioDaoImpl implements UsuarioDao{
+    
+    @PersistenceContext
+    EntityManager entityManager;
+
 
     @Override
     public List<Usuario> getUsuarios() {
-        throw new UnsupportedOperationException("Unimplemented method 'getUsuarios'");
+        String query="FROM Usuario";
+        return entityManager.createQuery(query).getResultList();
+        
     }
     
 }
