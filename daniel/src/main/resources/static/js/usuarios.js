@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 async function loadUsers(){
 
-  const request = await fetch('getUs', {
+  const request = await fetch('api/getUs', {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
