@@ -6,6 +6,7 @@ import com.springpractice.daniel.models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -43,14 +44,9 @@ public class UsuarioController {
         return usuario;
     }
 
-    @RequestMapping(value = "api/delU")
-    public Usuario deleteUsuario(){
-        Usuario usuario=new Usuario();
-        usuario.setNombre("daniel");
-        usuario.setApellido("de la rosa");
-        usuario.setEmail("correo@correo");
-        usuario.setTelefono("telefono");
-        return usuario;
+    @RequestMapping(value = "api/getU/{id}",method = RequestMethod.DELETE)
+    public void deleteUsuario(@PathVariable Long id){
+       usuarioDao.deleteUser(id);
     }
 
 
